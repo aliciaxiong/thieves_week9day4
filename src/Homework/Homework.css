@@ -46,9 +46,19 @@ button:hover {
 
 h2 {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 35px;
+    margin-bottom: 20px;
     color: darkred;
-    padding: 15px;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    height: 300px;
+    width: 300px;
 }
 
 .cocktail-container {
@@ -60,7 +70,7 @@ p {
     text-align: center;
     margin: 10px 0;
     color: darkred;
-    padding: 15px;
+    padding: 5px;
 }
 
 
