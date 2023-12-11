@@ -9,6 +9,8 @@ interface Cocktail {
     strIngredient1: string;
     strIngredient2: string;
     strIngredient3: string;
+    strIngredient4: string;
+    strIngredient5: string;
 }
 
 const Homework = () => {
@@ -39,16 +41,19 @@ const Homework = () => {
 
             <div className="cocktail-input-container">
                 <input type="text" placeholder="Search for a cocktail" value={search_Input} onChange={handleInput}/>
-                <button onClick={getCocktails}>Search</button>
+                    <div>
+                        <button onClick={getCocktails}>Search</button>        
+                    </div>
+                
             </div>
 
             <div className="cocktail-container">
                 {cocktails.map((cocktail) => (   
                     <div key={cocktail.idDrink} className="cocktail-card">
                         <h2>{cocktail.strDrink}</h2>                            
-                        <p>Glass Type: {cocktail.strGlass}</p>
-                        <p>Main 3 Ingrediants: {cocktail.strIngredient1}, {cocktail.strIngredient2}, {cocktail.strIngredient3}</p>
-                        <p>Instructions: {cocktail.strInstructions}</p>
+                        <p><b>Glass Type:</b> {cocktail.strGlass}</p>
+                        <p><b>Ingredients:</b> {cocktail.strIngredient1}, {cocktail.strIngredient2}, {cocktail.strIngredient3}, {cocktail.strIngredient4}, {cocktail.strIngredient5}</p>
+                        <p><b>Instructions:</b> {cocktail.strInstructions}</p>
                     </div>
                 ))}
             </div>

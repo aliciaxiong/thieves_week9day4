@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    background-color: darkred;
+    color: white;
+    padding: 15px;
+}
+
+input {
+    border-radius: 5px;
+    border-color: darkred;
+    border-width: 2px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    font-weight: bold;
+}
+
+button {
+    border-radius: 5px;
+    border-color: darkred;
+    border-width: 2px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    background-color: darkred;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: darkred;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: darkred;
+    padding: 15px;
+}
+
+.cocktail-container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+p {
+    text-align: center;
+    margin: 10px 0;
+    color: darkred;
+    padding: 15px;
+}
+
+
+
+
+
