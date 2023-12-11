@@ -1,15 +1,27 @@
 import "./Homework.css";
 import { useState } from "react";
 
+interface Cocktail {
+    idDrink: string;
+    strDrink: string;
+    strGlass: string;
+    strInstructions: string;
+    strIngredient1: string;
+    strIngredient2: string;
+    strIngredient3: string;
+}
+
 const Homework = () => {
     const [search_Input, setSearch_Input] = useState("");
+    const [cocktails, setCocktails] = useState<Cocktail[]>([]);
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch_Input(event.target.value)
-    }
-
+        setSearch_Input(event.target.value);
+    };
+    
     const getCocktails = async () => {
-        const response = await fetch(`https://the-cocktail-db.p.rapidapi.com/${search_Input}.php`, {
+        const response = await fetch(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${search_Input}`, {
+            method: "GET",
             headers: {
                 "X-RapidAPI-Key": "9fdc2053c1msh88688d8bdf9733fp186fcdjsn254d5049c897",
                 "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
@@ -17,20 +29,30 @@ const Homework = () => {
         });
 
         const data = await response.json()
-        console.log(data)
-    }
+        setCocktails(data.drinks)
+        console.log(data);
+    };
 
     return (
         <>
             <h1>Cocktails! Cocktails! Cocktails!</h1>
-            <div className="cocktail-input-container">
-                <input type="text" placeholder="Search for a cocktail" value={search_Input} onChange={handleInput} />
-                <button onClick={getCocktails}>Search</button>
 
+            <div className="cocktail-input-container">
+                <input type="text" placeholder="Search for a cocktail" value={search_Input} onChange={handleInput}/>
+                <button onClick={getCocktails}>Search</button>
             </div>
 
-
+            <div className="cocktail-container">
+                {cocktails.map((cocktail) => (   
+                    <div key={cocktail.idDrink} className="cocktail-card">
+                        <h2>{cocktail.strDrink}</h2>                            
+                        <p>Glass Type: {cocktail.strGlass}</p>
+                        <p>Main 3 Ingrediants: {cocktail.strIngredient1}, {cocktail.strIngredient2}, {cocktail.strIngredient3}</p>
+                        <p>Instructions: {cocktail.strInstructions}</p>
+                    </div>
+                ))}
+            </div>
         </>
-  )
+);
 }
 export default Homework
